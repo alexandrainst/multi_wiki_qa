@@ -23,7 +23,9 @@ def main(config: DictConfig) -> None:
     api = HfApi()
     card_data = api.repo_info(repo_id=config.repo_id, repo_type="dataset").card_data
     languages_to_skip = [dct["config_name"] for dct in card_data.dataset_info]
-    languages = list(set(config.languages) - set(languages_to_skip))
+    languages = [
+        language for language in config.languages if language not in languages_to_skip
+    ]
 
     for language in tqdm(languages, desc="Building Wikipedia datasets"):
         build_wikipedia_dataset(

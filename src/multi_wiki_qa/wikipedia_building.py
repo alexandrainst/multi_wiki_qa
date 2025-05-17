@@ -9,7 +9,7 @@ from nlp_dedup import Deduper
 logger = logging.getLogger(__name__)
 
 
-def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> Dataset:
+def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> None:
     """Build Wikipedia dataset for a given language and date.
 
     Args:
@@ -19,9 +19,6 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> Datas
             The date string in the format 'YYYYMMDD' for the Wikipedia dump.
         repo_id:
             The repository ID for the Hugging Face Hub where the dataset will be pushed.
-
-    Returns:
-        The Wikipedia dataset for the specified language and date.
     """
     dataset = load_dataset(
         "wikipedia",
@@ -59,5 +56,3 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> Datas
     # Clean up temporary directories
     rmtree(".cache", ignore_errors=True)
     rmtree("deduplicated", ignore_errors=True)
-
-    return dataset

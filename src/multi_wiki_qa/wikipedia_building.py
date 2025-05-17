@@ -1,7 +1,6 @@
 """Building Wikipedia datasets."""
 
 import logging
-import multiprocessing as mp
 from shutil import rmtree
 
 from datasets import Dataset, load_dataset
@@ -28,7 +27,6 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> Datas
         "wikipedia",
         language=language,
         date=date_str,
-        num_proc=mp.cpu_count(),
         trust_remote_code=True,
         split="train",
     )

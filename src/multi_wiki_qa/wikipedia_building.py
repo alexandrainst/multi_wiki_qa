@@ -29,7 +29,7 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> Datas
         date=date_str,
         trust_remote_code=True,
         split="train",
-        cache_dir="wikipedia",
+        cache_dir=".cache",
     )
     assert isinstance(dataset, Dataset)
 
@@ -53,7 +53,7 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> Datas
     )
 
     # Clean up directories
-    rmtree("wikipedia", ignore_errors=True)
+    rmtree(".cache", ignore_errors=True)
     rmtree("deduplicated", ignore_errors=True)
 
     return dataset

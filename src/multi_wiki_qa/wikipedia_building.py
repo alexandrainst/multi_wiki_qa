@@ -37,7 +37,11 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> Datas
     deduper = Deduper(return_generator=True)
     indices_to_keep = [
         idx
-        for idx, dct in enumerate(deduper.deduplicate(corpus=dataset, overwrite=True))
+        for idx, dct in enumerate(
+            deduper.deduplicate(
+                corpus=dataset, output_dir="deduplicated", overwrite=True
+            )
+        )
         if not dct["duplicate"]
     ]
     dataset = dataset.select(indices_to_keep)
@@ -52,6 +56,7 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> Datas
         private=True,
     )
 
+    # Clean up temporary directories
     rmtree(".cache", ignore_errors=True)
     rmtree("deduplicated", ignore_errors=True)
 

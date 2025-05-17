@@ -1,7 +1,9 @@
 """Building Wikipedia datasets."""
 
 import logging
+from pathlib import Path
 from shutil import rmtree
+from time import sleep
 
 from datasets import Dataset, load_dataset
 from nlp_dedup import Deduper
@@ -56,3 +58,5 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> None:
     # Clean up temporary directories
     rmtree(".cache", ignore_errors=True)
     rmtree("deduplicated", ignore_errors=True)
+    while Path("deduplicated").exists() or Path(".cache").exists():
+        sleep(0.5)

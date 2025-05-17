@@ -29,6 +29,7 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> Datas
         date=date_str,
         trust_remote_code=True,
         split="train",
+        cache_dir="wikipedia",
     )
     assert isinstance(dataset, Dataset)
 
@@ -40,7 +41,6 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> Datas
         if not dct["duplicate"]
     ]
     dataset = dataset.select(indices_to_keep)
-    rmtree("deduplicated", ignore_errors=True)
 
     # Save the dataset to the Hugging Face Hub
     logger.info(f"Pushing {language} Wikipedia dataset to the Hugging Face Hub...")
@@ -51,5 +51,9 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> Datas
         max_shard_size="1GB",
         private=True,
     )
+
+    # Clean up directories
+    rmtree("wikipedia", ignore_errors=True)
+    rmtree("deduplicated", ignore_errors=True)
 
     return dataset

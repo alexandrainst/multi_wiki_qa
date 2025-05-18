@@ -22,15 +22,22 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> None:
         repo_id:
             The repository ID for the Hugging Face Hub where the dataset will be pushed.
     """
-    dataset = load_dataset(
-        "wikipedia",
-        language=language,
-        date=date_str,
-        trust_remote_code=True,
-        split="train",
-        cache_dir=".cache",
-    )
-    assert isinstance(dataset, Dataset)
+    try:
+        dataset = load_dataset(
+            "wikipedia",
+            language=language,
+            date=date_str,
+            trust_remote_code=True,
+            split="train",
+            cache_dir=".cache",
+        )
+        assert isinstance(dataset, Dataset)
+    except FileNotFoundError:
+        logger.error(
+            f"There is no dataset for the language {language!r} and date {date_str!r}. "
+            "Skipping."
+        )
+        return
 
     # Deduplicate the dataset
     deduper = Deduper(return_generator=True)

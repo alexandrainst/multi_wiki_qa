@@ -5,6 +5,7 @@ from pathlib import Path
 from shutil import rmtree
 from time import sleep
 
+import aiohttp
 from datasets import Dataset, load_dataset
 from datasets.exceptions import DatasetGenerationError
 from nlp_dedup import Deduper
@@ -31,6 +32,9 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> None:
             trust_remote_code=True,
             split="train",
             cache_dir=".cache",
+            storage_options=dict(
+                client_kwargs=dict(timeout=aiohttp.ClientTimeout(total=3600))
+            ),
         )
         assert isinstance(dataset, Dataset)
     except FileNotFoundError:

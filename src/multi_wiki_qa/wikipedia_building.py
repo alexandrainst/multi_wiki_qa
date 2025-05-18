@@ -1,7 +1,6 @@
 """Building Wikipedia datasets."""
 
 import logging
-import multiprocessing as mp
 from pathlib import Path
 from shutil import rmtree
 from time import sleep
@@ -31,7 +30,6 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> None:
             trust_remote_code=True,
             split="train",
             cache_dir=".cache",
-            num_proc=mp.cpu_count(),
         )
         assert isinstance(dataset, Dataset)
     except FileNotFoundError:

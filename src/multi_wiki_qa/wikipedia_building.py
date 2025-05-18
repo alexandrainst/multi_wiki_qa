@@ -6,6 +6,7 @@ from shutil import rmtree
 from time import sleep
 
 from datasets import Dataset, load_dataset
+from datasets.exceptions import DatasetGenerationError
 from nlp_dedup import Deduper
 
 logger = logging.getLogger(__name__)
@@ -35,6 +36,12 @@ def build_wikipedia_dataset(language: str, date_str: str, repo_id: str) -> None:
     except FileNotFoundError:
         logger.error(
             f"There is no dataset for the language {language!r} and date {date_str!r}. "
+            "Skipping."
+        )
+        return
+    except DatasetGenerationError as e:
+        logger.error(
+            f"Failed to load the dataset for {language!r} and date {date_str!r}: {e} "
             "Skipping."
         )
         return

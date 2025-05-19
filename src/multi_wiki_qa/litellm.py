@@ -12,8 +12,6 @@ from litellm.types.utils import Choices, ModelResponse
 
 logger = logging.getLogger(__name__)
 
-litellm.suppress_debug_info = True
-
 
 def generate_samples_from_context(
     article: str,
@@ -48,6 +46,10 @@ def generate_samples_from_context(
     Returns:
         A list of dictionaries containing the generated text.
     """
+    # Suppress litellm logging
+    litellm.suppress_debug_info = True
+    logging.getLogger("LiteLLM").setLevel(logging.CRITICAL)
+
     client = litellm.LiteLLM()
 
     model_output = client.chat.completions.create(

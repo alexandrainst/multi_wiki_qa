@@ -71,8 +71,7 @@ languages:
   - cv
   - cy
   - da
-  - dag
-  - de
+  - dag # - de
   - dga
   - din
   - diq
@@ -83,8 +82,7 @@ languages:
   - dz
   - ee
   - el
-  - eml
-  - en
+  - eml # - en
   - eo
   - es
   - et

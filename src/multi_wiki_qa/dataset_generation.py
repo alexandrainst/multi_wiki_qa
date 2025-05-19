@@ -114,12 +114,12 @@ def build_dataset(config: DictConfig) -> None:
     dataset = Dataset.from_pandas(df, preserve_index=False)
 
     logger.info("Saving the dataset to disk...")
-    dataset_path = Path(config.dirs.data) / config.dirs.final / "foqa"
+    dataset_path = Path(config.dirs.data) / config.dirs.final / config.language_code
     dataset.save_to_disk(dataset_path)
     logger.info(f"Dataset saved to {dataset_path}.")
 
     if config.push_to_hub:
         logger.info("Pushing the dataset to the Hugging Face Hub...")
-        dataset.push_to_hub(config.hub_id)
+        dataset.push_to_hub(config.hub_id, config_name=config.language_code)
 
     logger.info("All done!")

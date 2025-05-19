@@ -13,4 +13,4 @@ COPY . /project
 RUN uv sync --no-dev --no-cache
 
 # Run the script
-CMD uv run python src/scripts/main.py
+CMD uv run python src/scripts/generate_dataset.py

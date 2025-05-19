@@ -120,6 +120,8 @@ def build_dataset(config: DictConfig) -> None:
 
     if config.push_to_hub:
         logger.info("Pushing the dataset to the Hugging Face Hub...")
-        dataset.push_to_hub(config.hub_id, config_name=config.language_code)
+        dataset.push_to_hub(
+            config.hub_id, config_name=config.language_code, private=True
+        )
 
     logger.info("All done!")

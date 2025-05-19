@@ -928,9 +928,7 @@ dependencies = [
     { name = "datasets" },
     { name = "hydra-core" },
     { name = "litellm" },
-    { name = "mwparserfromhell" },
     { name = "nlp-dedup" },
-    { name = "setuptools" },
 ]
 
 [package.dev-dependencies]
@@ -956,9 +954,7 @@ requires-dist = [
     { name = "datasets", specifier = ">=3.6.0" },
     { name = "hydra-core", specifier = ">=1.3.2" },
     { name = "litellm", specifier = ">=1.70.0" },
-    { name = "mwparserfromhell", specifier = ">=0.6.6" },
     { name = "nlp-dedup", specifier = ">=0.1.2" },
-    { name = "setuptools", specifier = ">=80.7.1" },
 ]
 
 [package.metadata.requires-dev]
@@ -1070,24 +1066,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/0a/7d/a988f258104dcd2ccf1ed40fdc97e26c4ac351eeaf81d76e266c52d84e2f/multiprocess-0.70.16-py312-none-any.whl", hash = "sha256:fc0544c531920dde3b00c29863377f87e1632601092ea2daca74e4beb40faa2e", size = 146741, upload-time = "2024-01-28T18:52:29.395Z" },
     { url = "https://files.pythonhosted.org/packages/ea/89/38df130f2c799090c978b366cfdf5b96d08de5b29a4a293df7f7429fa50b/multiprocess-0.70.16-py38-none-any.whl", hash = "sha256:a71d82033454891091a226dfc319d0cfa8019a4e888ef9ca910372a446de4435", size = 132628, upload-time = "2024-01-28T18:52:30.853Z" },
     { url = "https://files.pythonhosted.org/packages/da/d9/f7f9379981e39b8c2511c9e0326d212accacb82f12fbfdc1aa2ce2a7b2b6/multiprocess-0.70.16-py39-none-any.whl", hash = "sha256:a0bafd3ae1b732eac64be2e72038231c1ba97724b60b09400d68f229fcc2fbf3", size = 133351, upload-time = "2024-01-28T18:52:31.981Z" },
-]
-
-[[package]]
-name = "mwparserfromhell"
-version = "0.6.6"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/47/aa/358f9af602b743ac8898353f240f678b69722801bd0625507c69d9755936/mwparserfromhell-0.6.6.tar.gz", hash = "sha256:71afec1e9784ba576e95d6f34845582d3c733a3a52ba770dd8a9c3a40e5b649f", size = 138899, upload-time = "2024-01-04T06:40:20.17Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/19/15/1eb4fc9d68747885fb08f431de74a77a9b04851c141d58507ed337e721b2/mwparserfromhell-0.6.6-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:fff66e97f7c02aa0fd57ff8f702977a9c5a1d72ef55b64ee9b146291e4c41057", size = 123842, upload-time = "2024-01-04T06:40:16.911Z" },
-    { url = "https://files.pythonhosted.org/packages/bd/67/cbe2512d3ad77520fa869aaf14f3bd76402ca9d0d11c3068386d0eb75696/mwparserfromhell-0.6.6-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:59633d3cc09993af75ced8dfbd6800e1e38e64620851a095575621548448875c", size = 197677, upload-time = "2024-01-04T06:45:48.466Z" },
-    { url = "https://files.pythonhosted.org/packages/9b/1e/d3e3ff290be89135854c5945953c8fd9615388e795de1eb3da71e1a5b9ca/mwparserfromhell-0.6.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:007d0859e5467241b73c6e974df039a074609ce4e2b9df8c2263a8920554d032", size = 196287, upload-time = "2024-01-04T06:45:50.554Z" },
-    { url = "https://files.pythonhosted.org/packages/3d/da/af2daa54a7a6d89eb9c37320a0a39d9815b66b1d5bd000fa80d43f1a6847/mwparserfromhell-0.6.6-cp311-cp311-win32.whl", hash = "sha256:dbe5976b1b524e26aa2eb71b6219960f2578f56b536c68e0a79deb63e3b7f710", size = 98364, upload-time = "2024-01-04T07:13:15.215Z" },
-    { url = "https://files.pythonhosted.org/packages/30/51/16b6381021d3bb5ce1a277fd3334f7155f4aed1885e22eae78f4bfa07923/mwparserfromhell-0.6.6-cp311-cp311-win_amd64.whl", hash = "sha256:063c1e79befd1f55d77c358e0f5006f5ecf88ddf218ff6af55188d686139330e", size = 100668, upload-time = "2024-01-04T07:15:07.09Z" },
-    { url = "https://files.pythonhosted.org/packages/61/c0/059513420490a2d96b470d4f560445d89f022a4749a20a952bfb002e2915/mwparserfromhell-0.6.6-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:910d36bc70e8bea758380e75c12fd47626b295abec9f73a6099d8f937a649e77", size = 124175, upload-time = "2024-01-04T06:40:23.559Z" },
-    { url = "https://files.pythonhosted.org/packages/bc/ab/da1b51303f0457c8cd343cf2d9a66fd0c5654fe8d0331c8107751459191f/mwparserfromhell-0.6.6-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d2febd92a55a3f19b461833267726cb81429c3d6cb0006ad1691dfa849789e5d", size = 203036, upload-time = "2024-01-04T06:45:52.127Z" },
-    { url = "https://files.pythonhosted.org/packages/7a/39/6bd8d9678e8b3f57babee36b5a9540db8cccba1b81a64ed56576c653994b/mwparserfromhell-0.6.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2b75fae6d01c8fda19dbf127175122d7aa2964ef6454690e6868bbc3d80a7bc1", size = 201886, upload-time = "2024-01-04T06:45:53.526Z" },
-    { url = "https://files.pythonhosted.org/packages/8e/e1/026ea60ac66a8bc9314230cc0c1ad2bf496ceb16a3771d4fcfd6ecc25971/mwparserfromhell-0.6.6-cp312-cp312-win32.whl", hash = "sha256:19e9a4bcd85707c83172405eb2a9a046eff9d38dd7f1a56a5e5ecbbfef4a640a", size = 98748, upload-time = "2024-01-04T07:17:31.283Z" },
-    { url = "https://files.pythonhosted.org/packages/78/09/24c2f37524a3ebc3574975766748c7e4423ecefaa815c9fc4a324cbcf94a/mwparserfromhell-0.6.6-cp312-cp312-win_amd64.whl", hash = "sha256:cdc46c115b2495d4025920b7b30a6885a96d2b797ccc4009bf3cc02940ae55d3", size = 101071, upload-time = "2024-01-04T07:19:37.869Z" },
 ]
 
 [[package]]
@@ -1948,15 +1926,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/b7/8e/038ccfe29d272b30086b25a4960f757f97122cb2ec42e62b460d02fe98e9/scipy-1.15.3-cp313-cp313t-musllinux_1_2_aarch64.whl", hash = "sha256:40e54d5c7e7ebf1aa596c374c49fa3135f04648a0caabcb66c52884b943f02b4", size = 36393132, upload-time = "2025-05-08T16:08:15.34Z" },
     { url = "https://files.pythonhosted.org/packages/10/7e/5c12285452970be5bdbe8352c619250b97ebf7917d7a9a9e96b8a8140f17/scipy-1.15.3-cp313-cp313t-musllinux_1_2_x86_64.whl", hash = "sha256:5e721fed53187e71d0ccf382b6bf977644c533e506c4d33c3fb24de89f5c3ed5", size = 38979503, upload-time = "2025-05-08T16:08:21.513Z" },
     { url = "https://files.pythonhosted.org/packages/81/06/0a5e5349474e1cbc5757975b21bd4fad0e72ebf138c5592f191646154e06/scipy-1.15.3-cp313-cp313t-win_amd64.whl", hash = "sha256:76ad1fb5f8752eabf0fa02e4cc0336b4e8f021e2d5f061ed37d6d264db35e3ca", size = 40308097, upload-time = "2025-05-08T16:08:27.627Z" },
-]
-
-[[package]]
-name = "setuptools"
-version = "80.7.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz", hash = "sha256:f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552", size = 1319188, upload-time = "2025-05-15T02:41:00.955Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/a1/18/0e835c3a557dc5faffc8f91092f62fc337c1dab1066715842e7a4b318ec4/setuptools-80.7.1-py3-none-any.whl", hash = "sha256:ca5cc1069b85dc23070a6628e6bcecb3292acac802399c7f8edc0100619f9009", size = 1200776, upload-time = "2025-05-15T02:40:58.887Z" },
 ]
 
 [[package]]

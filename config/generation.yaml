@@ -1,0 +1,53 @@
+defaults:
+  - override hydra/job_logging: custom
+  - _self_
+
+seed: 4242
+
+# Data configuration
+language_code: da
+min_article_length: 1000
+num_samples: 5000
+push_to_hub: false
+hub_id: alexandrainst/multi_wiki_qa
+
+# Model configuration
+model: gemini/gemini-2.5-pro-preview-03-25
+max_tokens: 30_000
+temperature: 1.0
+
+system_prompt: >
+  You are a helpful {language} question answering dataset generator. The only language
+  you know is {language}.
+
+prompt: |
+  The following is a Wikipedia article in {language}.
+
+  <article>
+  {article}
+  </article>
+
+  Generate 2 to 10 questions about the article, depending on the length of the article, all of which answered in the article.
+
+  You also have to supply answers to the questions, and the answers have to appear exactly as written in the article (including same casing).
+
+  The answers should only contain the answers themselves, and not the surrounding sentence - keep the answers as short as possible.
+
+  The answers have to be different from each other.
+
+  All your questions and answers must be in {language}.
+
+  Your answer must be a JSON dictionary with the key "results", with the value being a list of dictionaries having keys "question" and "answer".
+
+follow_up_prompt: >
+  The following is a {language} question.
+
+  <question>
+  {question}
+  </question>
+
+  Re-write the question, preserving the meaning, using synonyms or a different (valid) word order.
+
+  Your question must be in {language}.
+
+  Your answer must be a JSON dictionary with the key "question".

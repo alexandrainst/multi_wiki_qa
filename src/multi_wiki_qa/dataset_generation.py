@@ -110,7 +110,6 @@ def build_dataset(config: DictConfig) -> None:
                     records.append(record)
                     f.write(json.dumps(record) + "\n")
                     pbar.n = len(records)
-                    pbar.set_postfix(samples_generated=len(records))
 
     logger.info("Converting the records to a Hugging Face dataset...")
     df = pd.DataFrame.from_records(records)

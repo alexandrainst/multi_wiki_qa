@@ -70,7 +70,7 @@ def build_dataset(config: DictConfig) -> None:
     with tqdm(
         desc=f"Generating samples with {config.model}", total=config.num_samples
     ) as pbar:
-        pbar.n = len(records)
+        pbar.update(len(records))
         for sample in dataset:
             assert isinstance(sample, dict)
             if len(records) >= config.num_samples:
@@ -79,10 +79,6 @@ def build_dataset(config: DictConfig) -> None:
                     "Stopping."
                 )
                 break
-
-            sample_exists = any(record["id"] == sample["url"] for record in records)
-            if sample_exists:
-                continue
 
             try:
                 generated_samples = generate_samples_from_context(

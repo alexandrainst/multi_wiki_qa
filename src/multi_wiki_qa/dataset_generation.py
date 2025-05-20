@@ -67,6 +67,7 @@ def build_dataset(config: DictConfig) -> None:
     with tqdm(
         desc=f"Generating samples with {config.model}", total=config.num_samples
     ) as pbar:
+        pbar.n = len(records)
         for sample in dataset:
             assert isinstance(sample, dict)
             if len(records) >= config.num_samples:

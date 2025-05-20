@@ -60,9 +60,11 @@ def build_dataset(config: DictConfig) -> None:
         records = list()
 
     # Remove the existing records
-    logger.info("Removing existing records from the dataset...")
     existing_urls = {record["id"] for record in records}
-    dataset = dataset.filter(lambda sample: sample["url"] not in existing_urls)
+    dataset = dataset.filter(
+        lambda sample: sample["url"] not in existing_urls,
+        desc=f"Removing {len(existing_urls):,} existing records from the dataset",
+    )
 
     with tqdm(
         desc=f"Generating samples with {config.model}", total=config.num_samples

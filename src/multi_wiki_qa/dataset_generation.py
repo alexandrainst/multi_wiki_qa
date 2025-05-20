@@ -63,7 +63,8 @@ def build_dataset(config: DictConfig) -> None:
     existing_urls = {record["id"] for record in records}
     dataset = dataset.filter(
         lambda sample: sample["url"] not in existing_urls,
-        desc=f"Removing {len(existing_urls):,} existing records from the dataset",
+        desc=f"Removing samples from {len(existing_urls):,} Wikipedia articles that we "
+        "already have generated samples for",
     )
 
     with tqdm(

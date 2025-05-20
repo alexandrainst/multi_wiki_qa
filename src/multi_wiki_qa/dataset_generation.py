@@ -59,6 +59,11 @@ def build_dataset(config: DictConfig) -> None:
     else:
         records = list()
 
+    # Remove the existing records
+    logger.info("Removing existing records from the dataset...")
+    existing_urls = {record["id"] for record in records}
+    dataset = dataset.filter(lambda sample: sample["url"] not in existing_urls)
+
     with tqdm(
         desc=f"Generating samples with {config.model}", total=config.num_samples
     ) as pbar:
@@ -80,6 +85,7 @@ def build_dataset(config: DictConfig) -> None:
                     article=sample["text"],
                     language=language,
                     model=config.model,
+                    fallback_models=config.fallback_models,
                     max_tokens=config.max_tokens,
                     temperature=config.temperature,
                     system_prompt=config.system_prompt,

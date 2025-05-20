@@ -17,6 +17,7 @@ def generate_samples_from_context(
     article: str,
     language: str,
     model: str,
+    fallback_models: list[str],
     max_tokens: int,
     temperature: float,
     system_prompt: str,
@@ -32,6 +33,8 @@ def generate_samples_from_context(
             The name of the language that the article is written in.
         model:
             The model to use for generation.
+        fallback_models:
+            An ordered list of fallback models to use if the primary model fails.
         max_tokens:
             The maximum number of tokens to generate.
         temperature:
@@ -51,9 +54,7 @@ def generate_samples_from_context(
     logging.getLogger("LiteLLM").setLevel(logging.CRITICAL)
     logging.getLogger("httpx").setLevel(logging.CRITICAL)
 
-    client = litellm.LiteLLM()
-
-    model_output = client.chat.completions.create(
+    model_output = litellm.completion(
         messages=[
             ChatCompletionSystemMessageParam(
                 role="system", content=system_prompt.format(language=language)
@@ -66,6 +67,7 @@ def generate_samples_from_context(
         max_tokens=max_tokens,
         temperature=temperature,
         response_format=dict(type="json_object"),
+        fallbacks=fallback_models,
     )
     assert isinstance(model_output, ModelResponse)
 
@@ -86,7 +88,7 @@ def generate_samples_from_context(
 
     # Re-phrase the generated questions
     for generated_sample in generated_samples:
-        model_output = client.chat.completions.create(
+        model_output = litellm.completion(
             messages=[
                 ChatCompletionSystemMessageParam(
                     role="system", content=system_prompt.format(language=language)
@@ -102,6 +104,7 @@ def generate_samples_from_context(
             max_tokens=max_tokens,
             temperature=temperature,
             response_format=dict(type="json_object"),
+            fallbacks=fallback_models,
         )
         assert isinstance(model_output, ModelResponse)
         choices = model_output.choices[0]

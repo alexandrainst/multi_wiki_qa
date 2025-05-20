@@ -2,6 +2,7 @@
 
 import json
 import logging
+import warnings
 
 import litellm
 from litellm.types.completion import (
@@ -53,6 +54,7 @@ def generate_samples_from_context(
     litellm.suppress_debug_info = True
     logging.getLogger("LiteLLM").setLevel(logging.CRITICAL)
     logging.getLogger("httpx").setLevel(logging.CRITICAL)
+    warnings.filterwarnings(action="ignore", category=RuntimeWarning)
 
     model_output = litellm.completion(
         messages=[

@@ -18,7 +18,6 @@ def generate_samples_from_context(
     article: str,
     language: str,
     model: str,
-    fallback_models: list[str],
     max_tokens: int,
     temperature: float,
     system_prompt: str,
@@ -34,8 +33,6 @@ def generate_samples_from_context(
             The name of the language that the article is written in.
         model:
             The model to use for generation.
-        fallback_models:
-            An ordered list of fallback models to use if the primary model fails.
         max_tokens:
             The maximum number of tokens to generate.
         temperature:
@@ -69,7 +66,6 @@ def generate_samples_from_context(
         max_tokens=max_tokens,
         temperature=temperature,
         response_format=dict(type="json_object"),
-        fallbacks=fallback_models,
     )
     assert isinstance(model_output, ModelResponse)
 
@@ -106,7 +102,6 @@ def generate_samples_from_context(
             max_tokens=max_tokens,
             temperature=temperature,
             response_format=dict(type="json_object"),
-            fallbacks=fallback_models,
         )
         assert isinstance(model_output, ModelResponse)
         choices = model_output.choices[0]

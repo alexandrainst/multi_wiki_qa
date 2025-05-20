@@ -86,7 +86,6 @@ def build_dataset(config: DictConfig) -> None:
                     article=sample["text"],
                     language=language,
                     model=config.model,
-                    fallback_models=config.fallback_models,
                     max_tokens=config.max_tokens,
                     temperature=config.temperature,
                     system_prompt=config.system_prompt,

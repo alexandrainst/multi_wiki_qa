@@ -46,7 +46,7 @@ follow_up_prompt: >
   {question}
   </question>
 
-  Re-write the question, preserving the meaning, using synonyms or a different (valid) word order.
+  Re-write the question as much as possible, preserving the meaning, using synonyms, other phrases, or a different (valid) word order.
 
   Your question must be in {language}.
 

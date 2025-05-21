@@ -4,9 +4,11 @@ import json
 import logging
 from pathlib import Path
 from shutil import rmtree
+from time import sleep
 
 import pandas as pd
 from datasets import Dataset, load_dataset
+from litellm.exceptions import InternalServerError
 from nlp_dedup import Deduper
 from omegaconf import DictConfig
 from tqdm.auto import tqdm
@@ -81,21 +83,33 @@ def build_dataset(config: DictConfig) -> None:
                 )
                 break
 
-            try:
-                generated_samples = generate_samples_from_context(
-                    article=sample["text"],
-                    language=language,
-                    model=config.model,
-                    max_tokens=config.max_tokens,
-                    temperature=config.temperature,
-                    system_prompt=config.system_prompt,
-                    prompt=config.prompt,
-                    follow_up_prompt=config.follow_up_prompt,
-                )
-            except Exception as e:
+            num_attempts = 5
+            errors: list[Exception] = list()
+            for _ in range(num_attempts):
+                try:
+                    generated_samples = generate_samples_from_context(
+                        article=sample["text"],
+                        language=language,
+                        model=config.model,
+                        max_tokens=config.max_tokens,
+                        temperature=config.temperature,
+                        system_prompt=config.system_prompt,
+                        prompt=config.prompt,
+                        follow_up_prompt=config.follow_up_prompt,
+                    )
+                    break
+                except InternalServerError as e:
+                    errors.append(e)
+                    if "try again later" in str(e):
+                        sleep(5)
+                        continue
+                except Exception as e:
+                    errors.append(e)
+                    continue
+            else:
                 logger.info(
-                    f"Failed to generate samples for {sample['url']} with error "
-                    f"{type(e)}: {e}. Skipping."
+                    f"Failed to generate samples for {sample['url']} after "
+                    f"{num_attempts} attempts. The errors were: {errors}"
                 )
                 continue
 

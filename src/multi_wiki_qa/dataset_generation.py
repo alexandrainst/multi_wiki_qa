@@ -92,6 +92,7 @@ def build_dataset(config: DictConfig) -> None:
                     prompt=config.prompt,
                     follow_up_prompt=config.follow_up_prompt,
                 )
+                breakpoint()
             except Exception as e:
                 logger.info(
                     f"Failed to generate samples for {sample['url']} with error "

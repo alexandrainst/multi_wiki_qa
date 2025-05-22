@@ -53,7 +53,7 @@ def generate_samples_from_context(
     logging.getLogger("httpx").setLevel(logging.CRITICAL)
     warnings.filterwarnings(action="ignore", category=RuntimeWarning)
 
-    model_output = litellm.completion(
+    model_output = litellm.completion_with_retries(
         messages=[
             ChatCompletionSystemMessageParam(
                 role="system", content=system_prompt.format(language=language)

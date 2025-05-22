@@ -112,7 +112,7 @@ def build_dataset(config: DictConfig) -> None:
                 except InternalServerError as e:
                     errors.append(e)
                     if "try again later" in str(e):
-                        sleep(5)
+                        sleep(60)
                         continue
                 except Exception as e:
                     errors.append(e)

@@ -65,7 +65,7 @@ def build_dataset(config: DictConfig) -> None:
     dataset = dataset.select(indices_to_keep)
     rmtree("deduplicated")
 
-    records_path = Path("data", "raw", "records.jsonl")
+    records_path = Path("data", "processed", f"{config.language_code}-records.jsonl")
     if records_path.exists():
         with records_path.open() as f:
             records = [json.loads(line) for line in f if line.strip()]

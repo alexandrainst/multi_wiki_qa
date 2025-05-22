@@ -136,7 +136,7 @@ def build_dataset(config: DictConfig) -> None:
     dataset = Dataset.from_pandas(df, preserve_index=False)
 
     logger.info("Saving the dataset to disk...")
-    dataset_path = Path(config.dirs.data) / config.dirs.final / config.language_code
+    dataset_path = Path("data", "final", config.language_code)
     dataset.save_to_disk(dataset_path)
     logger.info(f"Dataset saved to {dataset_path}.")
 

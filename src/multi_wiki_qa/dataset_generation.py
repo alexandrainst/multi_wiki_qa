@@ -26,19 +26,30 @@ def build_dataset(config: DictConfig) -> None:
         config:
             The Hydra configuration object.
     """
-    language = LANGUAGE_MAPPING[config.language_code]
+    try:
+        language = LANGUAGE_MAPPING[config.language_code]
+    except KeyError:
+        logger.error(
+            f"The language code {config.language_code!r} is not supported. "
+            "Please check the configuration."
+        )
+        return
 
     logger.info(f"Loading the {language} Wikipedia dataset...")
-    dataset = (
-        load_dataset(
-            "wikimedia/wikipedia",
-            name=f"20231101.{config.language_code}",
-            split="train",
+    try:
+        dataset = (
+            load_dataset(
+                "wikimedia/wikipedia",
+                name=f"20231101.{config.language_code}",
+                split="train",
+            )
+            .shuffle(seed=config.seed)
+            .filter(lambda x: len(x["text"]) > config.min_article_length)
         )
-        .shuffle(seed=config.seed)
-        .filter(lambda x: len(x["text"]) > config.min_article_length)
-    )
-    assert isinstance(dataset, Dataset)
+        assert isinstance(dataset, Dataset)
+    except ValueError:
+        logger.error(f"The {language!r} Wikipedia dataset is not available. Skipping.")
+        return
 
     # Deduplicate the dataset
     deduper = Deduper(return_generator=True)

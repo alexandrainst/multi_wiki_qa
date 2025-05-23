@@ -4,6 +4,8 @@ Usage:
     uv run src/scripts/generate_dataset.py <config_key>=<config_value> ...
 """
 
+import logging
+
 import hydra
 from dotenv import load_dotenv
 from huggingface_hub import HfApi
@@ -13,6 +15,8 @@ from multi_wiki_qa.constants import LANGUAGE_MAPPING
 from multi_wiki_qa.dataset_generation import build_dataset
 
 load_dotenv()
+
+logger = logging.getLogger("generate_dataset")
 
 
 @hydra.main(config_path="../../config", config_name="generation", version_base=None)
@@ -33,9 +37,13 @@ def main(config: DictConfig) -> None:
         ]
         iso_639_1_codes = list(LANGUAGE_MAPPING.keys())
         language_codes = sorted(set(wikipedia_languages) & set(iso_639_1_codes))
-        for language_code in language_codes:
+        for idx, language_code in enumerate(language_codes):
             config.language_code = language_code
             build_dataset(config=config)
+            logger.info(
+                f"Finished generating dataset for {language_code} "
+                f"({idx + 1}/{len(language_codes)})"
+            )
     else:
         build_dataset(config=config)
 

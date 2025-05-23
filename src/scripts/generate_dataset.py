@@ -32,7 +32,7 @@ def main(config: DictConfig) -> None:
             ).card_data.configs
         ]
         iso_639_1_codes = list(LANGUAGE_MAPPING.keys())
-        language_codes = set(wikipedia_languages) & set(iso_639_1_codes)
+        language_codes = sorted(set(wikipedia_languages) & set(iso_639_1_codes))
         for language_code in language_codes:
             config.language_code = language_code
             build_dataset(config=config)

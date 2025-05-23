@@ -101,7 +101,7 @@ def build_dataset(config: DictConfig) -> None:
                 )
                 break
 
-            num_attempts = 5
+            num_attempts = 10
             errors: list[Exception] = list()
             for _ in range(num_attempts):
                 try:
@@ -119,7 +119,7 @@ def build_dataset(config: DictConfig) -> None:
                 except InternalServerError as e:
                     errors.append(e)
                     if "try again later" in str(e):
-                        sleep(60)
+                        sleep(5 * 60)
                         continue
                 except Exception as e:
                     errors.append(e)

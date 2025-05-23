@@ -86,7 +86,7 @@ def generate_samples_from_context(
 
     # Re-phrase the generated questions
     for generated_sample in generated_samples:
-        model_output = litellm.completion(
+        model_output = litellm.completion_with_retries(
             messages=[
                 ChatCompletionSystemMessageParam(
                     role="system", content=system_prompt.format(language=language)

@@ -5,7 +5,7 @@ defaults:
 seed: 4242
 
 # Data configuration
-language_code: da
+language_code: all
 min_article_length: 1000
 num_samples: 5000
 push_to_hub: false

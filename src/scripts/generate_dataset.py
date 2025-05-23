@@ -6,8 +6,10 @@ Usage:
 
 import hydra
 from dotenv import load_dotenv
+from huggingface_hub import HfApi
 from omegaconf import DictConfig
 
+from multi_wiki_qa.constants import LANGUAGE_MAPPING
 from multi_wiki_qa.dataset_generation import build_dataset
 
 load_dotenv()
@@ -21,7 +23,21 @@ def main(config: DictConfig) -> None:
         config:
             The Hydra config for your project.
     """
-    build_dataset(config=config)
+    if config.language_code == "all":
+        api = HfApi()
+        wikipedia_languages = [
+            config["config_name"].split(".")[-1]
+            for config in api.repo_info(
+                repo_id="wikimedia/wikipedia", repo_type="dataset"
+            ).card_data.configs
+        ]
+        iso_639_1_codes = list(LANGUAGE_MAPPING.keys())
+        language_codes = set(wikipedia_languages) & set(iso_639_1_codes)
+        for language_code in language_codes:
+            config.language_code = language_code
+            build_dataset(config=config)
+    else:
+        build_dataset(config=config)
 
 
 if __name__ == "__main__":

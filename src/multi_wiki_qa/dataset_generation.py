@@ -65,6 +65,13 @@ def build_dataset(config: DictConfig) -> None:
     dataset = dataset.select(indices_to_keep)
     rmtree("deduplicated")
 
+    if len(dataset) < config.min_num_articles:
+        logger.error(
+            f"The {language!r} Wikipedia dataset has only {len(dataset):,} "
+            f"articles. Skipping."
+        )
+        return
+
     records_path = Path("data", "processed", f"{config.language_code}-records.jsonl")
     if records_path.exists():
         with records_path.open() as f:

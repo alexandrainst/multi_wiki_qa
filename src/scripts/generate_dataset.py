@@ -9,6 +9,7 @@ import logging
 import hydra
 from dotenv import load_dotenv
 from huggingface_hub import HfApi
+from huggingface_hub.errors import RepositoryNotFoundError
 from omegaconf import DictConfig
 
 from multi_wiki_qa.constants import LANGUAGE_MAPPING
@@ -36,7 +37,20 @@ def main(config: DictConfig) -> None:
             ).card_data.configs
         ]
         iso_639_1_codes = list(LANGUAGE_MAPPING.keys())
-        language_codes = sorted(set(wikipedia_languages) & set(iso_639_1_codes))
+        try:
+            already_generated_languages = [
+                config["config_name"].split(".")[-1]
+                for config in api.repo_info(
+                    repo_id=config.hub_id, repo_type="dataset"
+                ).card_data.configs
+            ]
+        except RepositoryNotFoundError:
+            already_generated_languages = []
+        language_codes = sorted(
+            (set(wikipedia_languages) & set(iso_639_1_codes))
+            - set(already_generated_languages)
+        )
+
         for idx, language_code in enumerate(language_codes):
             config.language_code = language_code
             try:

@@ -39,7 +39,14 @@ def main(config: DictConfig) -> None:
         language_codes = sorted(set(wikipedia_languages) & set(iso_639_1_codes))
         for idx, language_code in enumerate(language_codes):
             config.language_code = language_code
-            build_dataset(config=config)
+            try:
+                build_dataset(config=config)
+            except Exception as e:
+                logger.error(
+                    f"An error occurred while generating the dataset for "
+                    f"{language_code}: {e}. Skipping this language."
+                )
+                continue
             logger.info(
                 f"Finished generating dataset for {language_code} "
                 f"({idx + 1}/{len(language_codes)})"

@@ -2,6 +2,7 @@
 
 import json
 import logging
+import multiprocessing as mp
 from pathlib import Path
 from time import sleep
 
@@ -42,7 +43,11 @@ def build_dataset(config: DictConfig) -> None:
                 split="train",
             )
             .shuffle(seed=config.seed)
-            .filter(lambda x: len(x["text"]) > config.min_article_length)
+            .filter(
+                function=lambda x: len(x["text"]) > config.min_article_length,
+                num_proc=mp.cpu_count(),
+                desc="Filtering articles by length",
+            )
         )
         assert isinstance(dataset, Dataset)
     except ValueError:

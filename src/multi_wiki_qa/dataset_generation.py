@@ -3,13 +3,11 @@
 import json
 import logging
 from pathlib import Path
-from shutil import rmtree
 from time import sleep
 
 import pandas as pd
 from datasets import Dataset, load_dataset
 from litellm.exceptions import InternalServerError
-from nlp_dedup import Deduper
 from omegaconf import DictConfig
 from tqdm.auto import tqdm
 
@@ -50,20 +48,6 @@ def build_dataset(config: DictConfig) -> None:
     except ValueError:
         logger.error(f"The {language!r} Wikipedia dataset is not available. Skipping.")
         return
-
-    # Deduplicate the dataset
-    deduper = Deduper(return_generator=True)
-    indices_to_keep = [
-        idx
-        for idx, dct in enumerate(
-            deduper.deduplicate(
-                corpus=dataset, output_dir="deduplicated", overwrite=True
-            )
-        )
-        if not dct["duplicate"]
-    ]
-    dataset = dataset.select(indices_to_keep)
-    rmtree("deduplicated")
 
     if len(dataset) < config.min_num_articles:
         logger.error(

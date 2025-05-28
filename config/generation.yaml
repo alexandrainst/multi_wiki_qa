@@ -9,7 +9,7 @@ language_code: all
 min_article_length: 1000
 min_num_articles: 500
 num_samples: 5000
-push_to_hub: false
+push_to_hub: true
 hub_id: alexandrainst/multi-wiki-qa
 
 # Model configuration

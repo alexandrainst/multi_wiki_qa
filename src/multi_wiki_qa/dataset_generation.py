@@ -122,6 +122,10 @@ def build_dataset(config: DictConfig) -> None:
 
             with records_path.open("a") as f:
                 for generated_sample in generated_samples:
+                    question_invalid = not isinstance(generated_sample["question"], str)
+                    answer_invalid = not isinstance(generated_sample["answer"], str)
+                    if question_invalid or answer_invalid:
+                        continue
                     record = dict(
                         id=sample["url"],
                         title=sample["title"],
@@ -140,6 +144,9 @@ def build_dataset(config: DictConfig) -> None:
 
     logger.info("Converting the records to a Hugging Face dataset...")
     df = pd.DataFrame.from_records(records)
+    df = df[df.question.map(lambda x: isinstance(x, str))]
+    df = df[df.answers.map(lambda x: isinstance(x["text"][0], str))]
+    assert isinstance(df, pd.DataFrame)
     dataset = Dataset.from_pandas(df, preserve_index=False)
 
     logger.info("Saving the dataset to disk...")

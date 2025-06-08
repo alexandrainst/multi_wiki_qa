@@ -4,6 +4,7 @@ import json
 import logging
 import multiprocessing as mp
 from pathlib import Path
+from shutil import rmtree
 from time import sleep
 
 import pandas as pd
@@ -154,10 +155,16 @@ def build_dataset(config: DictConfig) -> None:
     dataset.save_to_disk(dataset_path)
     logger.info(f"Dataset saved to {dataset_path}.")
 
+    logger.info("Removing the temporary records file...")
+    records_path.unlink(missing_ok=True)
+
     if config.push_to_hub:
         logger.info("Pushing the dataset to the Hugging Face Hub...")
         dataset.push_to_hub(
             config.hub_id, config_name=config.language_code, private=True
         )
+
+        logger.info("Removing the local dataset directory...")
+        rmtree(dataset_path, ignore_errors=True)
 
     logger.info("All done!")

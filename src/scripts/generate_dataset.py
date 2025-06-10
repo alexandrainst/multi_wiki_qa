@@ -51,6 +51,12 @@ def main(config: DictConfig) -> None:
             - set(already_generated_languages)
         )
 
+        # Special case for Mandarin
+        if "zh" in language_codes:
+            language_codes.remove("zh")
+            language_codes.append("zh-cn")
+            language_codes.append("zh-tw")
+
         for idx, language_code in enumerate(language_codes):
             config.language_code = language_code
             try:

@@ -6,6 +6,7 @@ import multiprocessing as mp
 from pathlib import Path
 from time import sleep
 
+import hanzidentifier as hanz
 import pandas as pd
 from datasets import Dataset, load_dataset
 from litellm.exceptions import InternalServerError
@@ -39,7 +40,7 @@ def build_dataset(config: DictConfig) -> None:
         dataset = (
             load_dataset(
                 "wikimedia/wikipedia",
-                name=f"20231101.{config.language_code}",
+                name=f"20231101.{config.language_code.split('-')[0]}",
                 split="train",
             )
             .shuffle(seed=config.seed)
@@ -75,6 +76,18 @@ def build_dataset(config: DictConfig) -> None:
             lambda sample: sample["url"] not in existing_urls,
             desc=f"Removing samples from {len(existing_urls):,} Wikipedia articles "
             "that we already have generated samples for",
+        )
+
+    # Special case for Mandarin
+    if config.language_code == "zh-cn":
+        dataset = dataset.filter(
+            lambda sample: hanz.identify(sample["text"]) == hanz.SIMPLIFIED,
+            desc="Filtering out traditional Chinese articles (zh-cn only)",
+        )
+    elif config.language_code == "zh-tw":
+        dataset = dataset.filter(
+            lambda sample: hanz.identify(sample["text"]) == hanz.TRADITIONAL,
+            desc="Filtering out simplified Chinese articles (zh-tw only)",
         )
 
     with tqdm(

@@ -4,6 +4,7 @@ import json
 import logging
 import multiprocessing as mp
 from pathlib import Path
+from shutil import rmtree
 from time import sleep
 
 import hanzidentifier as hanz
@@ -135,6 +136,10 @@ def build_dataset(config: DictConfig) -> None:
 
             with records_path.open("a") as f:
                 for generated_sample in generated_samples:
+                    question_invalid = not isinstance(generated_sample["question"], str)
+                    answer_invalid = not isinstance(generated_sample["answer"], str)
+                    if question_invalid or answer_invalid:
+                        continue
                     record = dict(
                         id=sample["url"],
                         title=sample["title"],
@@ -153,6 +158,9 @@ def build_dataset(config: DictConfig) -> None:
 
     logger.info("Converting the records to a Hugging Face dataset...")
     df = pd.DataFrame.from_records(records)
+    df = df[df.question.map(lambda x: isinstance(x, str))]
+    df = df[df.answers.map(lambda x: isinstance(x["text"][0], str))]
+    assert isinstance(df, pd.DataFrame)
     dataset = Dataset.from_pandas(df, preserve_index=False)
 
     logger.info("Saving the dataset to disk...")
@@ -160,10 +168,16 @@ def build_dataset(config: DictConfig) -> None:
     dataset.save_to_disk(dataset_path)
     logger.info(f"Dataset saved to {dataset_path}.")
 
+    logger.info("Removing the temporary records file...")
+    records_path.unlink(missing_ok=True)
+
     if config.push_to_hub:
         logger.info("Pushing the dataset to the Hugging Face Hub...")
         dataset.push_to_hub(
             config.hub_id, config_name=config.language_code, private=True
         )
+
+        logger.info("Removing the local dataset directory...")
+        rmtree(dataset_path, ignore_errors=True)
 
     logger.info("All done!")

@@ -147,9 +147,9 @@ def build_dataset(config: DictConfig) -> None:
                         question=generated_sample["question"],
                         answers=dict(
                             text=[generated_sample["answer"]],
-                            answer_start=sample["text"].find(
-                                generated_sample["answer"]
-                            ),
+                            answer_start=[
+                                sample["text"].find(generated_sample["answer"])
+                            ],
                         ),
                     )
                     records.append(record)

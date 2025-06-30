@@ -31,16 +31,16 @@ def main(config: DictConfig) -> None:
     if config.language_code == "all":
         api = HfApi()
         wikipedia_languages = [
-            config["config_name"].split(".")[-1]
-            for config in api.repo_info(
+            cfg["config_name"].split(".")[-1]
+            for cfg in api.repo_info(
                 repo_id="wikimedia/wikipedia", repo_type="dataset"
             ).card_data.configs
         ]
         languages_in_mapping = list(LANGUAGE_MAPPING.keys())
         try:
             already_generated_languages = [
-                config["config_name"].split(".")[-1]
-                for config in api.repo_info(
+                cfg["config_name"].split(".")[-1]
+                for cfg in api.repo_info(
                     repo_id=config.hub_id, repo_type="dataset"
                 ).card_data.configs
             ]

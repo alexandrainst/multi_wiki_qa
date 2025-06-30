@@ -46,6 +46,11 @@ def main(config: DictConfig) -> None:
             ]
         except RepositoryNotFoundError:
             already_generated_languages = []
+        if already_generated_languages:
+            logger.info(
+                f"Skipping already generated languages: "
+                f"{', '.join(already_generated_languages)}"
+            )
         language_codes = sorted(
             (set(wikipedia_languages) & set(languages_in_mapping))
             - set(already_generated_languages)

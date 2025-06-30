@@ -30,13 +30,22 @@ def main(config: DictConfig) -> None:
     """
     if config.language_code == "all":
         api = HfApi()
+
+        # Get the list of available Wikipedia languages
         wikipedia_languages = [
             cfg["config_name"].split(".")[-1]
             for cfg in api.repo_info(
                 repo_id="wikimedia/wikipedia", repo_type="dataset"
             ).card_data.configs
         ]
-        languages_in_mapping = list(LANGUAGE_MAPPING.keys())
+        # Special case for Chinese, as we want to split it into Simplified and
+        # Traditional Chinese
+        if "zh" in wikipedia_languages:
+            wikipedia_languages.remove("zh")
+            wikipedia_languages.append("zh-cn")
+            wikipedia_languages.append("zh-tw")
+
+        # Skip already generated languages
         try:
             already_generated_languages = [
                 cfg["config_name"].split(".")[-1]
@@ -56,17 +65,15 @@ def main(config: DictConfig) -> None:
             logger.info(
                 "No languages have been generated yet. Generating all languages."
             )
+
+        # Filter languages to only keep those in the mapping and not already generated
+        languages_in_mapping = list(LANGUAGE_MAPPING.keys())
         language_codes = sorted(
             (set(wikipedia_languages) & set(languages_in_mapping))
             - set(already_generated_languages)
         )
 
-        # Special case for Mandarin
-        if "zh" in language_codes:
-            language_codes.remove("zh")
-            language_codes.append("zh-cn")
-            language_codes.append("zh-tw")
-
+        # Build the dataset for each language
         for idx, language_code in enumerate(language_codes):
             config.language_code = language_code
             try:

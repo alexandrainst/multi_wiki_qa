@@ -41,7 +41,7 @@ def build_dataset(config: DictConfig) -> None:
         dataset = (
             load_dataset(
                 "wikimedia/wikipedia",
-                name=f"20231101.{config.language_code.split('-')[0]}",
+                name=get_wikipedia_subset(language_code=config.language_code),
                 split="train",
             )
             .shuffle(seed=config.seed)
@@ -181,3 +181,20 @@ def build_dataset(config: DictConfig) -> None:
         rmtree(dataset_path, ignore_errors=True)
 
     logger.info("All done!")
+
+
+def get_wikipedia_subset(language_code: str) -> str:
+    """Get the name of the Wikipedia subset for a given language code.
+
+    Args:
+        language_code:
+            The language code to get the Wikipedia subset for.
+
+    Returns:
+        The name of the Wikipedia subset.
+    """
+    if language_code == "zh-cn" or language_code == "zh-tw":
+        language_code = "zh"
+    elif language_code == "yue":
+        language_code = "zh-yue"
+    return f"20231101.{language_code}"

@@ -36,7 +36,7 @@ def main(config: DictConfig) -> None:
                 repo_id="wikimedia/wikipedia", repo_type="dataset"
             ).card_data.configs
         ]
-        iso_639_1_codes = list(LANGUAGE_MAPPING.keys())
+        languages_in_mapping = list(LANGUAGE_MAPPING.keys())
         try:
             already_generated_languages = [
                 config["config_name"].split(".")[-1]
@@ -47,7 +47,7 @@ def main(config: DictConfig) -> None:
         except RepositoryNotFoundError:
             already_generated_languages = []
         language_codes = sorted(
-            (set(wikipedia_languages) & set(iso_639_1_codes))
+            (set(wikipedia_languages) & set(languages_in_mapping))
             - set(already_generated_languages)
         )
 

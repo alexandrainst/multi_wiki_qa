@@ -1,7 +1,5 @@
 """Constants used in the project."""
 
-# Taken from https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes.
-# Last updated 19 June 2022.
 LANGUAGE_MAPPING = {
     "ab": "Abkhazian",
     "aa": "Afar",
@@ -18,6 +16,7 @@ LANGUAGE_MAPPING = {
     "az": "Azerbaijani",
     "bm": "Bambara",
     "ba": "Bashkir",
+    "bar": "Bavarian",
     "eu": "Basque",
     "be": "Belarusian",
     "bn": "Bengali",

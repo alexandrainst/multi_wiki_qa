@@ -45,6 +45,7 @@ def main(config: DictConfig) -> None:
                 ).card_data.configs
             ]
         except RepositoryNotFoundError:
+            logger.warning(f"Repository {config.hub_id} not found.")
             already_generated_languages = []
         if already_generated_languages:
             logger.info(

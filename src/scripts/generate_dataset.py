@@ -51,6 +51,10 @@ def main(config: DictConfig) -> None:
                 f"Skipping already generated languages: "
                 f"{', '.join(already_generated_languages)}"
             )
+        else:
+            logger.info(
+                "No languages have been generated yet. Generating all languages."
+            )
         language_codes = sorted(
             (set(wikipedia_languages) & set(languages_in_mapping))
             - set(already_generated_languages)

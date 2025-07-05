@@ -7,7 +7,7 @@
 />
 </a>
 
-# Multi Wiki Qa
+# MultiWikiQA
 
 Multilingual extractive question answering dataset, based on Wikipedia.
 
@@ -20,7 +20,7 @@ ______________________________________________________________________
 
 Developer:
 
-- Dan Saattrup Nielsen (dan.nielsen@alexandra.dk)
+- Dan Saattrup Smart (dan.smart@alexandra.dk)
 
 
 ## Setup

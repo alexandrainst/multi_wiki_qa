@@ -4,10 +4,10 @@ version = "0.0.0"
 description = "Multilingual extractive question answering dataset, based on Wikipedia."
 readme = "README.md"
 authors = [
-    {name = "Dan Saattrup Nielsen", email = "dan.nielsen@alexandra.dk"},
+    {name = "Dan Saattrup Smart", email = "dan.smart@alexandra.dk"},
 ]
 maintainers = [
-    {name = "Dan Saattrup Nielsen", email = "dan.nielsen@alexandra.dk"},
+    {name = "Dan Saattrup Smart", email = "dan.smart@alexandra.dk"},
 ]
 requires-python = ">=3.11,<4.0"
 dependencies = [

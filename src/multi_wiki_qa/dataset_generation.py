@@ -102,10 +102,10 @@ def build_dataset(config: DictConfig) -> None:
             desc=f"Selecting {config.language_code.upper()} articles",
         ) as pbar:
             for i, sample in enumerate(dataset):
-                predictions = classifier(
+                prediction = classifier(
                     inputs=sample["text"], truncation=True, max_length=512
-                )
-                if predictions[0]["label"] == config.language_code.upper():
+                )[0]["label"]
+                if prediction == config.language_code.upper():
                     indices_to_keep.append(i)
                     pbar.update()
                 if len(indices_to_keep) >= config.num_samples:

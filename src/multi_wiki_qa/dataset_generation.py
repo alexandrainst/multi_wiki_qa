@@ -111,6 +111,10 @@ def build_dataset(config: DictConfig) -> None:
                 if len(indices_to_keep) >= config.num_samples:
                     break
         dataset = dataset.select(indices_to_keep)
+        logger.info(
+            f"Selected {len(indices_to_keep):,} articles in "
+            f"{config.language_code.upper()}."
+        )
 
     with tqdm(
         desc=f"Generating samples with {config.model}", total=config.num_samples

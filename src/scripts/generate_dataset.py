@@ -44,6 +44,16 @@ def main(config: DictConfig) -> None:
             wikipedia_languages.remove("zh")
             wikipedia_languages.append("zh-cn")
             wikipedia_languages.append("zh-tw")
+        # Special case for Cantonese
+        if "zh-yue" in wikipedia_languages:
+            wikipedia_languages.remove("zh-yue")
+            wikipedia_languages.append("yue")
+        # Special case for Portuguese, as we want to split it into European Portuguese
+        # and Brazilian Portuguese
+        if "pt" in wikipedia_languages:
+            wikipedia_languages.remove("pt")
+            wikipedia_languages.append("pt-pt")
+            wikipedia_languages.append("pt-br")
 
         # Skip already generated languages
         try:

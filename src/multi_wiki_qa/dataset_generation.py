@@ -13,6 +13,7 @@ from datasets import Dataset, load_dataset
 from litellm.exceptions import InternalServerError
 from omegaconf import DictConfig
 from tqdm.auto import tqdm
+from transformers.pipelines import pipeline
 
 from .constants import LANGUAGE_MAPPING
 from .litellm import generate_samples_from_context
@@ -90,6 +91,26 @@ def build_dataset(config: DictConfig) -> None:
             lambda sample: hanz.identify(sample["text"]) == hanz.TRADITIONAL,
             desc="Filtering out simplified Chinese articles (zh-tw only)",
         )
+
+    # Special case for Portuguese
+    if config.language_code in {"pt-pt", "pt-br"}:
+        logger.info("Loading the Portuguese language classifier...")
+        classifier = pipeline(task="text-classification", model="liaad/PtVId")
+        indices_to_keep: list[int] = []
+        with tqdm(
+            total=config.num_samples,
+            desc=f"Selecting {config.language_code.upper()} articles",
+        ) as pbar:
+            for i, sample in enumerate(dataset):
+                predictions = classifier(
+                    inputs=sample["text"], truncation=True, max_length=512
+                )
+                if predictions[0]["label"] == config.language_code.upper():
+                    indices_to_keep.append(i)
+                    pbar.update()
+                if len(indices_to_keep) >= config.num_samples:
+                    break
+        dataset = dataset.select(indices_to_keep)
 
     with tqdm(
         desc=f"Generating samples with {config.model}", total=config.num_samples
@@ -195,6 +216,8 @@ def get_wikipedia_subset(language_code: str) -> str:
     """
     if language_code == "zh-cn" or language_code == "zh-tw":
         language_code = "zh"
+    elif language_code == "pt-pt" or language_code == "pt-br":
+        language_code = "pt"
     elif language_code == "yue":
         language_code = "zh-yue"
     return f"20231101.{language_code}"

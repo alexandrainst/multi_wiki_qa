@@ -93,6 +93,7 @@ multirun/
 # Data
 data/raw/*
 !data/raw/.gitkeep
+!data/raw/feedback
 data/processed/*
 !data/processed/.gitkeep
 data/final/*

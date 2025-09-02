@@ -94,6 +94,7 @@ multirun/
 data/raw/*
 !data/raw/.gitkeep
 !data/raw/feedback
+!data/raw/euroeval_benchmark_results.jsonl
 data/processed/*
 !data/processed/.gitkeep
 data/final/*

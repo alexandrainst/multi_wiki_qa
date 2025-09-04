@@ -1,0 +1,153 @@
+\begin{thebibliography}{18}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Bandarkar et~al.(2024)Bandarkar, Liang, Muller, Artetxe, Shukla,
+  Husa, Goyal, Krishnan, Zettlemoyer, and
+  Khabsa}]{bandarkar-etal-2024-belebele}
+Bandarkar, Lucas and Liang, Davis and Muller, Benjamin and Artetxe, Mikel and
+  Shukla, Satya Narayan and Husa, Donald and Goyal, Naman and Krishnan,
+  Abhinandan and Zettlemoyer, Luke and Khabsa, Madian. 2024.
+\newblock \href {https://doi.org/10.18653/v1/2024.acl-long.44} {\emph{The
+  Belebele Benchmark: a Parallel Reading Comprehension Dataset in 122 Language
+  Variants}}.
+\newblock Association for Computational Linguistics.
+
+\bibitem[{Clark et~al.(2020)Clark, Choi, Collins, Garrette, Kwiatkowski,
+  Nikolaev, and Palomaki}]{clark-etal-2020-tydi}
+Clark, Jonathan H. and Choi, Eunsol and Collins, Michael and Garrette, Dan and
+  Kwiatkowski, Tom and Nikolaev, Vitaly and Palomaki, Jennimaria. 2020.
+\newblock \href {https://doi.org/10.1162/tacl_a_00317} {\emph{{T}y{D}i {QA}: A
+  Benchmark for Information-Seeking Question Answering in Typologically Diverse
+  Languages}}.
+\newblock MIT Press.
+
+\bibitem[{d{'}Hoffschmidt et~al.(2020)d{'}Hoffschmidt, Belblidia, Heinrich,
+  Brendl{\'e}, and Vidal}]{dhoffschmidt-etal-2020-fquad}
+d{'}Hoffschmidt, Martin and Belblidia, Wacim and Heinrich, Quentin and
+  Brendl{\'e}, Tom and Vidal, Maxime. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.findings-emnlp.107}
+  {\emph{{FQ}u{AD}: {F}rench Question Answering Dataset}}.
+\newblock Association for Computational Linguistics.
+
+\bibitem[{Efimov et~al.(2020)Efimov, Chertok, Boytsov, and
+  Braslavski}]{efimov2020sberquad}
+Efimov, Pavel and Chertok, Andrey and Boytsov, Leonid and Braslavski, Pavel.
+  2020.
+\newblock \emph{SberQuAD--Russian Reading Comprehension Dataset: Description
+  and Analysis}.
+\newblock Springer.
+
+\bibitem[{Ivanova et~al.(2023)Ivanova, Andreassen, Jentoft, Wold, and
+  {\O}vrelid}]{ivanova-etal-2023-norquad}
+Ivanova, Sardana and Andreassen, Fredrik and Jentoft, Matias and Wold, Sondre
+  and {\O}vrelid, Lilja. 2023.
+\newblock \href {https://aclanthology.org/2023.nodalida-1.17/}
+  {\emph{{N}or{Q}u{AD}: {N}orwegian Question Answering Dataset}}.
+\newblock University of Tartu Library.
+
+\bibitem[{Joshi et~al.(2017)Joshi, Choi, Weld, and
+  Zettlemoyer}]{joshi-etal-2017-triviaqa}
+Joshi, Mandar and Choi, Eunsol and Weld, Daniel and Zettlemoyer, Luke. 2017.
+\newblock \href {https://doi.org/10.18653/v1/P17-1147} {\emph{{T}rivia{QA}: A
+  Large Scale Distantly Supervised Challenge Dataset for Reading
+  Comprehension}}.
+\newblock Association for Computational Linguistics.
+
+\bibitem[{Jun et~al.(2022)Jun, Choi, Sim, Kim, Jang, and
+  Min}]{jun-etal-2022-korean}
+Jun, Changwook and Choi, Jooyoung and Sim, Myoseop and Kim, Hyun and Jang,
+  Hansol and Min, Kyungkoo. 2022.
+\newblock \href {https://aclanthology.org/2022.lrec-1.657/}
+  {\emph{{K}orean-Specific Dataset for Table Question Answering}}.
+\newblock European Language Resources Association.
+
+\bibitem[{Kwiatkowski et~al.(2019)Kwiatkowski, Palomaki, Redfield, Collins,
+  Parikh, Alberti, Epstein, Polosukhin, Devlin, Lee, Toutanova, Jones, Kelcey,
+  Chang, Dai, Uszkoreit, Le, and Petrov}]{kwiatkowski-etal-2019-natural}
+Kwiatkowski, Tom and Palomaki, Jennimaria and Redfield, Olivia and Collins,
+  Michael and Parikh, Ankur and Alberti, Chris and Epstein, Danielle and
+  Polosukhin, Illia and Devlin, Jacob and Lee, Kenton and Toutanova, Kristina
+  and Jones, Llion and Kelcey, Matthew and Chang, Ming-Wei and Dai, Andrew M.
+  and Uszkoreit, Jakob and Le, Quoc and Petrov, Slav. 2019.
+\newblock \href {https://doi.org/10.1162/tacl_a_00276} {\emph{Natural
+  Questions: A Benchmark for Question Answering Research}}.
+\newblock MIT Press.
+
+\bibitem[{Lewis et~al.(2020)Lewis, Oguz, Rinott, Riedel, and
+  Schwenk}]{lewis-etal-2020-mlqa}
+Lewis, Patrick and Oguz, Barlas and Rinott, Ruty and Riedel, Sebastian and
+  Schwenk, Holger. 2020.
+\newblock \href {https://doi.org/10.18653/v1/2020.acl-main.653} {\emph{{MLQA}:
+  Evaluating Cross-lingual Extractive Question Answering}}.
+\newblock Association for Computational Linguistics.
+
+\bibitem[{Liu et~al.(2024)Liu, Zhang, Farup, Lauvrak, Ingvaldsen, Eide, Gulla,
+  and Yang}]{liu-etal-2024-nlebench}
+Liu, Peng and Zhang, Lemei and Farup, Terje and Lauvrak, Even W. and
+  Ingvaldsen, Jon Espen and Eide, Simen and Gulla, Jon Atle and Yang, Zhirong.
+  2024.
+\newblock \href {https://doi.org/10.18653/v1/2024.emnlp-main.317}
+  {\emph{{NLEB}ench+{N}or{GLM}: A Comprehensive Empirical Analysis and
+  Benchmark Dataset for Generative Language Models in {N}orwegian}}.
+\newblock Association for Computational Linguistics.
+
+\bibitem[{Longpre et~al.(2021)Longpre, Lu, and Daiber}]{longpre-etal-2021-mkqa}
+Longpre, Shayne and Lu, Yi and Daiber, Joachim. 2021.
+\newblock \href {https://doi.org/10.1162/tacl_a_00433} {\emph{{MKQA}: A
+  Linguistically Diverse Benchmark for Multilingual Open Domain Question
+  Answering}}.
+\newblock MIT Press.
+
+\bibitem[{M{\"o}ller et~al.(2021)M{\"o}ller, Risch, and
+  Pietsch}]{moller-etal-2021-germanquad}
+M{\"o}ller, Timo and Risch, Julian and Pietsch, Malte. 2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.mrqa-1.4}
+  {\emph{{G}erman{Q}u{AD} and {G}erman{DPR}: Improving Non-{E}nglish Question
+  Answering and Passage Retrieval}}.
+\newblock Association for Computational Linguistics.
+
+\bibitem[{Nielsen(2023)}]{nielsen-2023-scandeval}
+Nielsen, Dan. 2023.
+\newblock \href {https://aclanthology.org/2023.nodalida-1.20/}
+  {\emph{{S}cand{E}val: A Benchmark for {S}candinavian Natural Language
+  Processing}}.
+\newblock University of Tartu Library.
+
+\bibitem[{Rajpurkar et~al.(2016)Rajpurkar, Zhang, Lopyrev, and
+  Liang}]{rajpurkar-etal-2016-squad}
+Rajpurkar, Pranav and Zhang, Jian and Lopyrev, Konstantin and Liang, Percy.
+  2016.
+\newblock \href {https://doi.org/10.18653/v1/D16-1264} {\emph{{SQ}u{AD}:
+  100,000+ Questions for Machine Comprehension of Text}}.
+\newblock Association for Computational Linguistics.
+
+\bibitem[{Rybak et~al.(2024)Rybak, Przyby{\l}a, and
+  Ogrodniczuk}]{rybak-etal-2024-polqa}
+Rybak, Piotr and Przyby{\l}a, Piotr and Ogrodniczuk, Maciej. 2024.
+\newblock \href {https://aclanthology.org/2024.lrec-main.1125/}
+  {\emph{{P}ol{QA}: {P}olish Question Answering Dataset}}.
+\newblock ELRA and ICCL.
+
+\bibitem[{Simonsen et~al.(2025)Simonsen, Nielsen, and
+  Einarsson}]{simonsen-etal-2025-foqa}
+Simonsen, Annika and Nielsen, Dan Saattrup and Einarsson, Hafsteinn. 2025.
+\newblock \href {https://aclanthology.org/2025.resourceful-1.11/}
+  {\emph{{F}o{QA}: A {F}aroese Question-Answering Dataset}}.
+\newblock University of Tartu Library, Estonia.
+
+\bibitem[{Sn{\ae}bjarnarson and
+  Einarsson(2022)}]{snaebjarnarson-einarsson-2022-natural}
+Sn{\ae}bjarnarson, V{\'e}steinn and Einarsson, Hafsteinn. 2022.
+\newblock \href {https://aclanthology.org/2022.lrec-1.477/} {\emph{Natural
+  Questions in {I}celandic}}.
+\newblock European Language Resources Association.
+
+\bibitem[{Sousa et~al.(2025)Sousa, Almeida, Silvano, Cantante, Campos, and
+  Jorge}]{sousa2025enhancing}
+Hugo Sousa and Rúben Almeida and Purificação Silvano and Inês Cantante and
+  Ricardo Campos and Alipio Jorge. 2025.
+\newblock \href {https://doi.org/10.1609/aaai.v39i24.34705} {\emph{Enhancing
+  Portuguese Variety Identification with Cross-Domain Approaches}}.
+\newblock AAAI.
+
+\end{thebibliography}

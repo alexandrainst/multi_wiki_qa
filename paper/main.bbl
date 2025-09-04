@@ -1,0 +1,93 @@
+\begin{thebibliography}{12}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Comanici et~al.(2025)Comanici, Bieber, Schaekermann, Pasupat,
+  Sachdeva, Dhillon, Blistein, Ram, Zhang, Rosen et~al.}]{comanici2025gemini}
+Gheorghe Comanici, Eric Bieber, Mike Schaekermann, Ice Pasupat, Noveen
+  Sachdeva, Inderjit Dhillon, Marcel Blistein, Ori Ram, Dan Zhang, Evan Rosen,
+  et~al. 2025.
+\newblock Gemini 2.5: Pushing the frontier with advanced reasoning,
+  multimodality, long context, and next generation agentic capabilities.
+\newblock \emph{arXiv preprint arXiv:2507.06261}.
+
+\bibitem[{Grattafiori et~al.(2024)Grattafiori, Dubey, Jauhri, Pandey, Kadian,
+  Al-Dahle, Letman, Mathur, Schelten, Vaughan et~al.}]{grattafiori2024llama}
+Aaron Grattafiori, Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek
+  Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Alex
+  Vaughan, et~al. 2024.
+\newblock The llama 3 herd of models.
+\newblock \emph{arXiv preprint arXiv:2407.21783}.
+
+\bibitem[{Jia and Liang(2017)}]{jia2017adversarial}
+Robin Jia and Percy Liang. 2017.
+\newblock Adversarial examples for evaluating reading comprehension systems.
+\newblock In \emph{Proceedings of the 2017 Conference on Empirical Methods in
+  Natural Language Processing}, pages 2021--2031.
+
+\bibitem[{Mistral-AI(2025)}]{mistralsmall2025}
+Mistral-AI. 2025.
+\newblock \href {https://mistral.ai/news/mistral-small-3-1} {Mistral small
+  3.1}.
+\newblock [Online; accessed 31. Jul. 2025].
+
+\bibitem[{Nielsen(2023)}]{nielsen-2023-scandeval}
+Dan Nielsen. 2023.
+\newblock \href {https://aclanthology.org/2023.nodalida-1.20/} {{S}cand{E}val:
+  A benchmark for {S}candinavian natural language processing}.
+\newblock In \emph{Proceedings of the 24th Nordic Conference on Computational
+  Linguistics (NoDaLiDa)}, pages 185--201, T{\'o}rshavn, Faroe Islands.
+  University of Tartu Library.
+
+\bibitem[{Reid et~al.(2024)Reid, Savinov, Teplyashin, Lepikhin, Lillicrap,
+  Alayrac, Soricut, Lazaridou, Firat, Schrittwieser et~al.}]{reid2024gemini}
+Machel Reid, Nikolay Savinov, Denis Teplyashin, Dmitry Lepikhin, Timothy~P
+  Lillicrap, Jean-Baptiste Alayrac, Radu Soricut, Angeliki Lazaridou, Orhan
+  Firat, Julian Schrittwieser, et~al. 2024.
+\newblock Gemini 1.5: Unlocking multimodal understanding across millions of
+  tokens of context.
+\newblock \emph{CoRR}.
+
+\bibitem[{Ruder et~al.(2019)Ruder, S{\o}gaard, and
+  Vuli{\'c}}]{ruder2019unsupervised}
+Sebastian Ruder, Anders S{\o}gaard, and Ivan Vuli{\'c}. 2019.
+\newblock Unsupervised cross-lingual representation learning.
+\newblock In \emph{Proceedings of the 57th Annual Meeting of the Association
+  for Computational Linguistics: Tutorial Abstracts}, pages 31--38.
+
+\bibitem[{Saattrup~Nielsen et~al.(2025)Saattrup~Nielsen, Enevoldsen, and
+  Schneider-Kamp}]{saattrup-nielsen-etal-2025-encoder}
+Dan Saattrup~Nielsen, Kenneth Enevoldsen, and Peter Schneider-Kamp. 2025.
+\newblock \href {https://aclanthology.org/2025.nodalida-1.60/} {Encoder vs
+  decoder: {Comparative} analysis of encoder and decoder language models on
+  multilingual {NLU} tasks}.
+\newblock In \emph{Proceedings of the Joint 25th Nordic Conference on
+  Computational Linguistics and 11th Baltic Conference on Human Language
+  Technologies (NoDaLiDa/Baltic-HLT 2025)}, pages 561--572, Tallinn, Estonia.
+  University of Tartu Library.
+
+\bibitem[{tsroten(2024)}]{tsroten2024hanzidentifier}
+tsroten. 2024.
+\newblock {hanzidentifier}.
+\newblock \url{https://github.com/tsroten/hanzidentifier}.
+\newblock GitHub Repository, version {v1.3.0}, accessed 2025.
+
+\bibitem[{Wang et~al.(2024)Wang, Yang, Huang, Yang, Majumder, and
+  Wei}]{wang2024multilingual}
+Liang Wang, Nan Yang, Xiaolong Huang, Linjun Yang, Rangan Majumder, and Furu
+  Wei. 2024.
+\newblock Multilingual e5 text embeddings: A technical report.
+\newblock \emph{arXiv preprint arXiv:2402.05672}.
+
+\bibitem[{Weissenborn et~al.(2017)Weissenborn, Wiese, and
+  Seiffe}]{weissenborn2017making}
+Dirk Weissenborn, Georg Wiese, and Laura Seiffe. 2017.
+\newblock Making neural qa as simple as possible but not simpler.
+\newblock \emph{CoNLL 2017}, page 271.
+
+\bibitem[{You(2025)}]{you2025vuejs}
+Evan You. 2025.
+\newblock {VueJS}.
+\newblock \url{https://github.com/vuejs/core}.
+\newblock GitHub Repository, version {v3.6.0-alpha.2}, accessed 2025.
+
+\end{thebibliography}

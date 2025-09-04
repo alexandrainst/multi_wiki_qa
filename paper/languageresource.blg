@@ -1,0 +1,124 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: languageresource.aux
+The style file: lrec-coling2024-natbib.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: languageresource.bib
+"{" immediately follows a field part---line 8 of file languageresource.bib
+ :   pid=\url
+ :           {http://hf.co/datasets/kuznetsoffandrey/sberquad}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 28 of file languageresource.bib
+ :     pid = \url
+ :               {"https://hf.co/datasets/rajpurkar/squad"}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 54 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/facebook/belebele}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 69 of file languageresource.bib
+ :     pid = \url
+ :               {https://doi.org/10.57967/hf/6061}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 92 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/google-research-datasets/tydiqa}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 110 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/apple/mkqa}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 132 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/facebook/mlqa}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 154 of file languageresource.bib
+ :     pid = \url
+ :               {https://doi.org/10.57967/hf/5615}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 181 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/vesteinn/icelandic-qa-NQiI}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 202 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/illuin/fquad}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 226 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/deepset/germanquad}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 250 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/NorGLM/NO-Multi-QA-Sum}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 269 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/ltg/norquad}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 300 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/KorQuAD/squad_kor_v1}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 321 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/ipipan/polqa}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 340 of file languageresource.bib
+ :     pid = \url
+ :               {"https://hf.co/datasets/mandarjoshi/trivia_qa"}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 375 of file languageresource.bib
+ :     pid = \url
+ :               {https://hf.co/datasets/google-research-datasets/natural_questions}
+I'm skipping whatever remains of this entry
+"{" immediately follows a field part---line 390 of file languageresource.bib
+ :    pid = \url
+ :              {https://hf.co/datasets/liaad/PtBrVId}
+I'm skipping whatever remains of this entry
+You've used 18 entries,
+            3666 wiz_defined-function locations,
+            866 strings with 13066 characters,
+and the built_in function-call counts, 10608 in all, are:
+= -- 1020
+> -- 556
+< -- 2
++ -- 214
+- -- 194
+* -- 805
+:= -- 1832
+add.period$ -- 72
+call.type$ -- 18
+change.case$ -- 169
+chr.to.int$ -- 18
+cite$ -- 18
+duplicate$ -- 481
+empty$ -- 730
+format.name$ -- 231
+if$ -- 2305
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 54
+newline$ -- 94
+num.names$ -- 54
+pop$ -- 302
+preamble$ -- 1
+purify$ -- 169
+quote$ -- 0
+skip$ -- 508
+stack$ -- 0
+substring$ -- 200
+swap$ -- 142
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 162
+warning$ -- 0
+while$ -- 36
+width$ -- 0
+write$ -- 219
+(There were 18 error messages)

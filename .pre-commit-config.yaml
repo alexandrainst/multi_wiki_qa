@@ -4,13 +4,13 @@ repos:
     hooks:
       - id: python-use-type-annotations
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: debug-statements
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.10
+    rev: v0.15.7
     hooks:
       - id: ruff-check
         args:
@@ -27,11 +27,11 @@ repos:
           - pyi
           - jupyter
 -   repo: https://github.com/kynan/nbstripout
-    rev: 0.8.1
+    rev: 0.9.1
     hooks:
     -   id: nbstripout
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.15.0
+    rev: v1.19.1
     hooks:
     -   id: mypy
         args:

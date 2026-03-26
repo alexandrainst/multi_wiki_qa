@@ -115,3 +115,13 @@ models/*
 
 # Mkdocs compiled documentation
 site/
+
+# LaTeX
+**/*.aux
+**/*.log
+**/*.out
+**/*.bbl
+**/*.blg
+**/*.fdb_latex
+**/*.fls
+**/*.synctex.gz

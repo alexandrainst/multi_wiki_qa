@@ -121,7 +121,8 @@ site/
 **/*.log
 **/*.out
 **/*.bbl
+**/*.bst
 **/*.blg
-**/*.fdb_latex
+**/*.fdb_latexmk
 **/*.fls
 **/*.synctex.gz
